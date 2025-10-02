@@ -3,65 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Bootts</title>
+  <title>Next Boots</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
+    * {
       margin: 0;
       padding: 0;
-      display: flex;              /* ativa flexbox */
-      justify-content: center;    /* centraliza horizontal */
-      align-items: center;        /* centraliza vertical */
-      min-height: 100vh;          /* altura mínima 100% da tela */
+      box-sizing: border-box;
     }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
       color: #333;
     }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
     p {
       text-align: center;
       color: #666;
     }
+
     label {
-      font-weight: bold;
-      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      margin-top: 20px;
       display: block;
     }
+
     input, textarea, select {
       width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
+      padding: 14px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 14px;
-      box-sizing: border-box;   /* garante que padding/borda não quebrem o tamanho */
-      height: 45px;             /* deixa todos com a mesma altura */
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: all 0.3s ease;
     }
-    .btn {
-      display: block;
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
       width: 100%;
       padding: 14px;
-      background: #28a745;
+      background-color: #007bff;
       color: #fff;
       font-size: 16px;
-      font-weight: bold;
+      font-weight: 600;
       border: none;
       border-radius: 8px;
       margin-top: 20px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
-    .btn:hover {
-      background: #218838;
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .comprovante {
+      margin-top: 35px;
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .comprovante.show {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+
+    .comprovante h2 {
+      color: #28a745;
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .comprovante p {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #555;
+    }
+
+    .comprovante .bold {
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Responsividade */
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      input, button {
+        font-size: 16px;
+      }
+
+      .comprovante p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -85,19 +176,19 @@
       <label for="tamanho">Tamanho da Chuteira:</label>
       <select id="tamanho" name="tamanho" required>
         <option value="">Selecione o tamanho</option>
-        <option value="38">Tamanho 34 - 22,5 cm</option>
-        <option value="38">Tamanho 35 - 22,9 cm</option>
-        <option value="38">Tamanho 36 - 23,8 cm</option>
-        <option value="38">Tamanho 37 - 24,2 cm</option>
+        <option value="34">Tamanho 34 - 22,5 cm</option>
+        <option value="35">Tamanho 35 - 22,9 cm</option>
+        <option value="36">Tamanho 36 - 23,8 cm</option>
+        <option value="37">Tamanho 37 - 24,2 cm</option>
         <option value="38">Tamanho 38 - 24,6 cm</option>
         <option value="39">Tamanho 39 - 25,0 cm</option>
         <option value="40">Tamanho 40 - 25,9 cm</option>
         <option value="41">Tamanho 41 - 26,7 cm</option>
         <option value="42">Tamanho 42 - 27,1 cm</option>
         <option value="43">Tamanho 43 - 28,0 cm</option>
-        <option value="38">Tamanho 44 - 28,8 cm</option>
-        <option value="38">Tamanho 45 - 29,3 cm</option>
-        <option value="38">Tamanho 46 - 30,1 cm</option>
+        <option value="44">Tamanho 44 - 28,8 cm</option>
+        <option value="45">Tamanho 45 - 29,3 cm</option>
+        <option value="46">Tamanho 46 - 30,1 cm</option>
       </select>
 
       <label for="cidade">Cidade:</label>
@@ -155,6 +246,9 @@
 
       let url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
       window.open(url, "_blank");
+
+      // Exibir o comprovante com animação
+      document.getElementById("comprovante").classList.add("show"); // Ativa a animação
     });
   </script>
 </body>
